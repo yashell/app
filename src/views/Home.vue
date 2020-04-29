@@ -1,12 +1,12 @@
 <template>
   <div class="page">
-    <Head :msg=haha />
+    <Head :msg=apptitle />
 
     <div class="mainDiv">
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div v-for="(item) in imgList" :key="item" class="swiper-slide">
-            <img class="swiper-slide" :src="item">
+          <div :key="item" class="swiper-slide" v-for="(item) in imgList">
+            <img :src="item" class="swiper-slide">
           </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -15,20 +15,56 @@
         <!-- <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div> -->
         <!-- 如果需要滚动条 -->
-        <div class="swiper-scrollbar"></div>
-      </div>
-      <div class="index_horiroll">
-        <ul>
-          <img class="index_horiroll_item" src="../assets/images/lo_1.png">
-          <img class="index_horiroll_item" src="../assets/images/lo_2.png">
-          <img class="index_horiroll_item" src="../assets/images/lo_3.png">
-          <img class="index_horiroll_item" src="../assets/images/lo_4.png">
-          <img class="index_horiroll_item" src="../assets/images/lo_5.png">
-          <img class="index_horiroll_item" src="../assets/images/lo_6.png">
-        </ul>
+        <!--<div class="swiper-scrollbar"></div>-->
       </div>
 
+      <div class="container">
+        <div class="container_item">
+          <span class="fontA">姓名：XXX</span>
+        </div>
+        <div class="container_item">
+          <span class="fontA">部门：XXXXXXXXXXX</span>
+        </div>
+      </div>
 
+      <div class="container">
+        <div class="container_item">
+          <span class="fontB">我的学习进度</span>
+        </div>
+        <div class="container_item">
+          <span class="fontC widthA">科目：XXX</span>
+          <span class="fontC widthB">学习时长：XXX小时XX分钟</span>
+        </div>
+        <div class="container_item">
+          <span class="fontC widthA">科目：XXX</span>
+          <span class="fontC widthB">学习时长：XXX小时XX分钟</span>
+        </div>
+        <div class="container_item">
+          <span class="fontC widthA">科目：XXX</span>
+          <span class="fontC widthB">学习时长：XXX小时XX分钟</span>
+        </div>
+      </div>
+
+        <div class="container">
+            <div class="container_item">
+                <span class="fontB">我的成绩排名</span>
+            </div>
+            <div class="container_item">
+                <span class="fontC widthA">科目：XXX</span>
+                <span class="fontC widthC">总人数：XX</span>
+                <span class="fontC widthC">排名：30</span>
+            </div>
+            <div class="container_item">
+                <span class="fontC widthA">科目：XXX</span>
+                <span class="fontC widthC">总人数：XX</span>
+                <span class="fontC widthC">排名：30</span>
+            </div>
+            <div class="container_item">
+              <span class="fontC widthA">科目：XXX</span>
+              <span class="fontC widthC">总人数：XX</span>
+              <span class="fontC widthC">排名：30</span>
+            </div>
+        </div>
     </div>
   </div>
 </template>
@@ -42,14 +78,12 @@
 
   import Swiper from "swiper"
   import 'swiper/dist/css/swiper.min.css';
-
-
   export default {
     store,
     name: "home",
     data: function() {
       return {
-        haha: store.state.AppName,
+        apptitle: store.state.AppName,
         imgList: [require("../assets/images/swiper1.jpg"),require("../assets/images/swiper2.jpg"),require("../assets/images/swiper3.jpg"),require("../assets/images/swiper4.jpg")],
       };
     },
@@ -73,10 +107,6 @@
       })
     },
     methods: {
-      bb: function(data) {
-        this.haha = data;
-        console.log(data);
-      }
     }
   };
 </script>
